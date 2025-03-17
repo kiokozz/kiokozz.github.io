@@ -1,0 +1,580 @@
+/* Общие стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Верхняя шапка с языками */
+.top-header {
+    background-color: #30247a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    height: 40px;
+}
+
+.language-selector {
+    display: flex;
+}
+
+.language-selector button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    opacity: 0.7;
+    font-size: 14px;
+}
+
+.language-selector button.active {
+    opacity: 1;
+    font-weight: bold;
+}
+
+.header-icons {
+    display: flex;
+}
+
+.icon-button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+/* Основная навигация */
+.main-nav {
+    background-color: rgb(48, 36, 122);
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-items {
+    display: flex;
+}
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    position: relative;
+    font-family: 'IgraSans';
+}
+
+.nav-item:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #4b39b5;
+}
+
+.logo {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	 display: flex;
+     
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.search-button, .menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.menu-button {
+    display: flex;
+    flex-direction: column;
+    width: 30px;
+    height: 20px;
+    justify-content: space-between;
+}
+
+.menu-button span {
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+
+/* Первая секция - карусель новостей */
+.news-carousel {
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+}
+
+.slide-content {
+    max-width: 600px;
+    margin-left: 80px;
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.carousel-slide.active .slide-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-content h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.register-button {
+    display: inline-flex;
+    align-items: center;
+    background-color: #4b39b5;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #3a2d8f;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.news-carousel .carousel-navigation {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.news-carousel .prev-button, 
+.news-carousel .next-button {
+    width: 50px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.news-carousel .prev-button:hover, 
+.news-carousel .next-button:hover {
+    background-color: white;
+    color: #30247a;
+}
+.contact-info {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    text-align: right;
+    font-size: 14px;
+}
+
+.contact-info span {
+    display: block;
+    margin-top: 5px;
+}
+
+/* Вторая секция - мероприятия */
+.events-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.events-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.events-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.event-card {
+    flex: 0 0 33.33%;
+    background-color: #e6eaee;
+    border-radius: 15px;
+    padding: 20px;
+    margin-right: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.event-date {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-time {
+    display: inline-flex;
+    align-items: center;
+    background-color: #5045a0;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.event-time i {
+    margin-right: 5px;
+}
+
+.event-media {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.event-media img, .event-media iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.event-title {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.carousel-navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.prev-button, .next-button {
+    width: 50px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #5045a0;
+    border-radius: 5px;
+    color: #5045a0;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: #5045a0;
+    color: white;
+}
+
+/* Третья секция - кнопки категорий */
+.categories-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+    grid-template-rows: repeat(2, 200px); /* 2 ряда по 200px */
+    gap: 20px;
+}
+
+.category-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+}
+
+.category-card.large {
+    grid-row: span 2; /* "АБИТУРИЕНТУ" занимает 2 ряда */
+}
+
+.category-card.medium {
+    grid-column: span 1;
+    grid-row: span 1; /* Остальные карточки занимают 1 ряд */
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%);
+    transition: background 0.4s ease;
+}
+
+.category-card:hover::before {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+}
+
+.card-content {
+    position: relative;
+    padding: 20px;
+    width: 100%;
+}
+
+.card-content h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .category-card.large {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+    .category-card.large {
+        grid-row: auto;
+    }
+    .category-card.medium {
+        grid-row: auto;
+    }
+    .category-card {
+        height: 200px;
+    }
+}
+
+/* Четвёртая секция - достижения в цифрах */
+.achievements-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.achievements-section h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.achievement-card {
+    background-color: #e6eaee;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.achievement-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.achievement-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-icon {
+    margin-bottom: 15px;
+}
+
+.achievement-icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.achievement-number {
+    font-size: 48px;
+    font-weight: bold;
+    line-height: 1;
+    color: #30247a; /* Цвет из шапки сайта */
+}
+
+.achievement-prefix {
+    font-size: 24px;
+    color: #30247a;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+}
+
+.achievement-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.achievement-description {
+    font-size: 16px;
+    margin-top: 5px;
+    color: #666;
+}
+
+/* Анимация появления секций */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .large {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    .medium-tall, .medium {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .achievements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .slide-content {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .event-card {
+        flex: 0 0 100%;
+    }
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+    .large, .medium-tall, .medium {
+        grid-column: span 1;
+    }
+    .achievements-grid {
+        grid-template-columns: 1fr;
+    }
+    .slide-content {
+        margin-left: 20px;
+    }
+    .slide-content h1 {
+        font-size: 28px;
+    }
+}
+
+@font-face {
+    font-family: "IgraSans";
+    src: url("IgraSans.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
